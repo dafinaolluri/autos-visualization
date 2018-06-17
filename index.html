@@ -2,20 +2,10 @@
 <html lang="en-US">
 <head>
 	<meta charset="utf-8">
-	<script>
-	 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	 ga('create', 'UA-59188119-3', 'auto');
-	 ga('send', 'pageview');
-
-	</script>
 	<style type="text/css">
 	html, body {
-	            overflow: hidden;
-			}
+	    	overflow: hidden;
+	}
 	text {
 		pointer-events: none;
 	}
@@ -107,7 +97,7 @@
 		/*------------------------------------
 		Load Data and Initialize Treemap
 		------------------------------------*/
-		start(year, groups);
+		start(bodyStyle, groups);
 
 		$('input[name=optradio]:radio').change(function() {
 			start(this.value, groups);
@@ -123,63 +113,60 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="http://opendatakosovo.org">Open Data Kosovo</a>
-			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li><a href="http://opendatakosovo.org/blog-posts/2015/11/15/taking-a-deeper-look-at-procurement/">Back to Article</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="http://opendatakosovo.org/app/csv-server/output?file_name=procurement_data&root_node=Procurement%20Data" target="blank">Get Source Data</a></li>
-				</ul>
+				<a class="navbar-brand" href="">Dafina Olluri</a>
 			</div>
 		</div>
 	</nav>
 	<div class="row">
-		<h5>Year:</h5>
+		<h5>Body Style:</h5>
 		<div class="form">
 			<div class="btn-group-vertical btn-group-sm" data-toggle="buttons">
-				<label class="btn btn-default btn-block active"><input type="radio" name="optradio" value="2014" checked>2014</label>
-				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="2013">2013</label>
-				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="2012">2012</label>
-				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="2011">2011</label>
-				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="2010">2010</label>
-				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="all">All Years</label>
+				<label class="btn btn-default btn-block active"><input type="radio" name="optradio" value="all" checked>All</label>
+				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="hardtop">Hardtop</label>
+				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="wagon">Wagon</label>
+				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="sedan">Sedan</label>
+				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="hatchback">Hatchback</label>
+				<label class="btn btn-default btn-block"><input type="radio" name="optradio" value="convertible">Convertible</label>
+				
 			</div>
 		</div>
 		<br>
 		<h5>Group By:
-			<a href="#" data-toggle="popover" title="Group By Options" data-content="These dropdown boxes allow you to change the way the data is grouped in the treemap. The value in each dropdown box below represents a level to be displayed in the treemap as you zoom in and out. For example, the default setting is to group the data by Municipality (level 1), then by Contract Type (level 2) which is what is seen once a Municipality is clicked. Once you have selected the levels for grouping, click the 'Regroup' button below to refresh the treemap.">
+			<a href="#" data-toggle="popover" title="Group By Options" data-content="These dropdown boxes allow you to change the way the data is grouped in the treemap. The value in each dropdown box below represents a level to be displayed in the treemap as you zoom in and out. For example, the default setting is to group the data by Make (level 1), then by Fuel Type (level 2) which is what is seen once a Make is clicked. Once you have selected the levels for grouping, click the 'Regroup' button below to refresh the treemap.">
 				<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 			</a>
 		</h5>
 		<div class="input-group">
 			<h6>Level 1</h6>
 			<select class="form-control" id="level1">
-				<option value="Municipality">Municipality</option>
-				<option value="Fund%20Source">Funding Source</option>
-				<option value="Contract%20Type">Contract Type</option>
-				<option value="">None</option>
+				<option value="make" selected>Make</option>
+				<option value="fuel-type">Fuel Type</option>
+				<option value="drive-wheels">Drive Wheels</option>
+				<option value="engine-type">Engine Type</option>
+				<option value="num-of-cylinders">Number of Cylinders</option>
 			</select>
 		</div>
 		<br>
 		<div class="input-group">
 			<h6>Level 2</h6>
 			<select class="form-control" id="level2">
-				<option value="Contract%20Type">Contract Type</option>
-				<option value="Municipality">Municipality</option>
-				<option value="Fund%20Source">Funding Source</option>
-				<option value="">None</option>
+				<option value="make">Make</option>
+				<option value="fuel-type" selected>Fuel Type</option>
+				<option value="drive-wheels">Drive Wheels</option>
+				<option value="engine-type">Engine Type</option>
+				<option value="num-of-cylinders">Number of Cylinders</option>
 			</select>
 		</div>
 		<br>
 		<div class="input-group">
 			<h6>Level 3</h6>
 			<select class="form-control" id="level3">
-				<option value="">None</option>
-				<option value="Municipality">Municipality</option>
-				<option value="Fund%20Source">Funding Source</option>
-				<option value="Contract%20Type">Contract Type</option>
+				<option value="None" selected>None</option>
+				<option value="make">Make</option>
+				<option value="fuel-type">Fuel Type</option>
+				<option value="drive-wheels">Drive Wheels</option>
+				<option value="engine-type">Engine Type</option>
+				<option value="num-of-cylinders">Number of Cylinders</option>
 			</select>
 		</div>
 		<br>
@@ -200,13 +187,13 @@
 	var height = Math.max(document.documentElement.clientHeight*v_border, window.innerHeight*v_border|| 0);
 
 	// Set default values
-	var year = $('input[name=optradio]:checked').val();
+	var bodyStyle = $('input[name=optradio]:checked').val();
 	if (groups === undefined) {
-		var groups = "Municipality,Contract%20Type"
+		var groups = "make,fuel-type"
 	};
 
 	// Add Color Scale
-	var colorDomain = [-1, 0, 1];
+	var colorDomain = [5118, 20141, 45400];
 	var colorRange = ["#81F781", 'white', "#FE2E2E"];
 	var colorCount = 10;
 	var colorSeries = [];
@@ -244,14 +231,14 @@
 	/*------------------------------------
 	Functions
 	------------------------------------*/
-	function start(year, groups) {
+	function start(bodyStyle, groups) {
 		toggleSpinner(true);
-		var url = "http://opendatakosovo.org/app/csv-server/output?file_name=procurement_data&colnames=";
+		var url = "http://localhost:5000/output?file_name=autosb&colnames=";
 		url = url + groups;
 		url = url + "&sum_field=value";
-		url = url + "&avg_field=overun_%";
-		url = url + "&root_node=Procurement%20Data";
-		if (year != "all") {url = url + "&filter_col=Year&filter_val=" + year};
+		url = url + "&avg_field=value";
+		url = url + "&root_node=Auto%20Data";
+		if (bodyStyle != "all") {url = url + "&filter_col=body-style&filter_val=" + bodyStyle};
 		$.ajax({
 			'url': url,
 			'dataType': "json",
@@ -269,8 +256,8 @@
 		if (level1 == level3) {level3 = ""};
 		if (level2 == level3) {level3 = ""};
 		window.groups = $.grep([level1, level2, level3], Boolean).join(",");
-		var year = $('input[name=optradio]:checked').val();
-		start(year, groups);
+		var bodyStyle = $('input[name=optradio]:checked').val();
+		start(bodyStyle, groups);
 	};
 
 	function createMap(root) {
@@ -373,7 +360,7 @@
 		grandparent
 		.datum(d.parent)
 		.select("rect")
-		.attr("fill", function(){return (d["overun_%"] === undefined) ? color(0) : color(d["overun_%"]); });
+		.attr("fill", function(){return (d["value"] === undefined) ? color(0) : color(d["value"]); });
 
 
 		var g1 = svg.insert("g", ".grandparent")
@@ -405,7 +392,7 @@
 		g.append("text")
 		.attr("dy", ".75em")
 		.text(function(d) {
-			if(d["name"] !== undefined) {title = d["name"];} else {title = "#" + d["Serial Number"]};
+			if(d["name"] !== undefined) {title = d["name"];} else {title = ""};
 			return title;
 		})
 		.call(text);
@@ -459,20 +446,25 @@
 			trigger: 'manual',
 			html : true,
 			content: function() {
-				if(d["name"] !== undefined) {title1 = "<h4>" + d["name"] + "</h4><br>";} else {title1 = ""};
-				if(d["Serial Number"] !== undefined) {title2 = "<h4> #" + d["Serial Number"] + "</h4><br>";} else {title2 = ""};
-				if(d["Description"] !== undefined) {desc = "<strong>Description:</strong> " + d["Description"] + "<br>";} else {desc = ""};
-				if(d["Estimated Cost"] !== undefined) {esco = "<strong>Estimated Cost:</strong> €" + d["Estimated Cost"] + "<br>";} else {esco = ""};
-				if(d["count"] > 1) {count = "<strong>Number of Contracts:</strong> " + d["count"] + "<br>";} else {count = "";}
-				if(d["value"] !== undefined) {acco = "<strong>Total Cost:</strong> €" + d["value"].formatMoney(0) + "<br>";} else {acco = ""};
-				if(d["Year"] !== undefined) {year = "<strong>Year:</strong> " + d["Year"] + "<br>";} else {year = ""};
-				if(d["Municipality"] !== undefined) {muni = "<strong>Municipality:</strong> " + d["Municipality"] + "<br>";} else {muni = ""};
-				if(d["Date Signed"] !== undefined) {date = "<strong>Date Signed:</strong> " + d["Date Signed"] + "<br>";} else {date = ""};
-				if(d["Fund Source"] !== undefined) {fund = "<strong>Fund Source:</strong> " + d["Fund Source"] + "<br>";} else {fund = ""};
-				if(d["Contract Awardee"] !== undefined) {awar = "<strong>Contract Awardee:</strong> " + d["Contract Awardee"] + "<br>";} else {awar = ""};
-				if(d["Awardee Headquarters"] !== undefined) {awhq = "<strong>Awardee HQ:</strong> " + d["Awardee Headquarters"] + "<br>";} else {awhq = ""};
 
-				var text = title1 + title2 + year + muni + desc + esco + count + acco + date + fund + awar + awhq
+				if(d["make"] !== undefined) {make = "<h4>" + d["make"] + "</h4><br>";} else {make = ""};
+				if(d["fuel-type"] !== undefined) {fuelType = "<strong>Fuel Type:</strong> " + d["fuel-type"] + "<br>";} else {fuelType = ""};
+				if(d["fuel-system"] !== undefined) {fuelSystem = "<strong>Fuel System:</strong> " + d["fuel-system"] + "<br>";} else {fuelSystem = "";}
+				if(d["drive-wheels"] !== undefined) {driveWheels = "<strong>Drive Wheels:</strong> " + d["drive-wheels"] + "<br>";} else {driveWheels = ""};
+				if(d["engine-type"] !== undefined) {engineType = "<strong>Engine Type:</strong> " + d["engine-type"] + "<br>";} else {engineType = ""};
+				if(d["num-of-cylinders"] !== undefined) {cylindersNum = "<strong>Number of Cylinders:</strong> " + d["num-of-cylinders"] + "<br>";} else {cylindersNum = "";}
+				if(d["engine-location"] !== undefined) {engineLocation = "<strong>Engine Location:</strong> " + d["engine-location"] + "<br>";} else {engineLocation = "";}
+				if(d["num-of-doors"] !== undefined) {doorNum = "<strong>Number of Doors:</strong> " + d["num-of-doors"] + "<br>";} else {doorNum = "";}
+				if(d["aspiration"] !== undefined) {aspiration = "<strong>Aspiration:</strong> " + d["aspiration"] + "<br>";} else {aspiration = "";}
+				if(d["horsepower"] !== undefined) {horsepower = "<strong>Horsepower:</strong> " + d["horsepower"] + "<br>";} else {horsepower = "";}
+				if(d["peak-rpm"] !== undefined) {peakRPM = "<strong>Peak RPM:</strong> " + d["peak-rpm"] + "<br>";} else {peakRPM = "";}
+				if(d["city-mpg"] !== undefined) {cityMPG = "<strong>City MPG:</strong> " + d["city-mpg"] + "<br>";} else {cityMPG = "";}
+				if(d["highway-mpg"] !== undefined) {highwayMPG = "<strong>Highway MPG:</strong> " + d["highway-mpg"] + "<br>";} else {highwayMPG = "";}
+
+				if(d["value"] !== undefined) {value = "<strong>Value: </strong>$" + d["value"].formatMoney(0) + "<br>";} else {value = ""};
+
+				var text = make + doorNum + fuelType + fuelSystem + driveWheels + engineType + cylindersNum + engineLocation + aspiration + horsepower + peakRPM + cityMPG + highwayMPG + value;
+
 				return text;
 			}
 		});
@@ -482,7 +474,7 @@
 	function text(text) {
 		text.attr("x", function(d) { return x(d.x) + 6; })
 		.attr("y", function(d) { return y(d.y) + 6; })
-		.attr("fill", function (d) {return getContrast50(color(parseFloat(d["overun_%"]))); });
+		.attr("fill", function (d) {return getContrast50(color(parseFloat(d["value"]))); });
 	}
 
 	function rect(rect) {
@@ -490,7 +482,7 @@
 		.attr("y", function(d) { return y(d.y); })
 		.attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
 		.attr("height", function(d) { return y(d.y + d.dy) - y(d.y); })
-		.attr("fill", function(d){return color(parseFloat(d["overun_%"])); });
+		.attr("fill", function(d){return color(parseFloat(d["value"])); });
 	}
 
 	function name(d) {
@@ -506,9 +498,9 @@
 
 	//Text for Legend
 	function legendText(d){
-		if (d == 0) {var text = "Under Budget"}
-		else if (d == 5) {var text = "On Budget"}
-		else if (d == 10) {var text = "Over Budget"}
+		if (d == 0) {var text = "Lowest Total"}
+		else if (d == 5) {var text = "Middle Total"}
+		else if (d == 10) {var text = "Highest Total"}
 		else {var text = ""};
 		return (text)
 	}
