@@ -1,3 +1,3 @@
-##Procurement Data Zoomable Tree Map##
+# Autos Visualization
 
-Final visualization can be viewed [here](http://opendatakosovo.github.io/procurement-visualization/)
+Visualization can be viewed [here](http://dafinaolluri.github.io/autos-visualization/)
